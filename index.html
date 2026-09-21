@@ -119,8 +119,23 @@
             text-shadow: 0 0 12px rgba(205, 180, 219, 0.7), 0 0 26px rgba(189, 224, 254, 0.4);
         }
         
+        .bear-gif {
+            width: 180px;
+            max-width: 60vw;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 2s, transform 2s;
+            filter: drop-shadow(0 0 18px rgba(255, 200, 221, 0.5));
+        }
+
+        .bear-gif.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .button {
-            margin-top: 50px;
+            margin-top: 30px;
             opacity: 0;
             transition: opacity 2s;
         }
@@ -194,6 +209,8 @@
         <p class="message red" id="message1">AMOR MÍO</p>
         <p class="message" id="message2">TENGO UN REGALO ESPECIAL PARA TI</p>
         
+        <img src="img/oso-rosa.gif" alt="Osito con una rosa" class="bear-gif" id="bearGif">
+
         <div class="button" id="button">
             <button class="btn" onclick="location.href='index1.html'">
                 VER TU REGALO
@@ -261,9 +278,15 @@
                 message1.classList.add('visible');
             }, 3000);
             
+            const bearGif = document.getElementById('bearGif');
+            
             setTimeout(() => {
                 message2.classList.add('visible');
             }, 6000);
+            
+            setTimeout(() => {
+                bearGif.classList.add('visible');
+            }, 7500);
             
             setTimeout(() => {
                 button.classList.add('visible');
