@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
     <title>FLORES PROTEGIDAS</title>
     <style>
         /* Estilos para los puntitos amarillos */
@@ -98,9 +101,10 @@ body::before {
     top: 2%; /* Posicionado más arriba */
     left: 50%;
     transform: translateX(-50%);
-    font-family: 'Courier New', monospace;
-    text-transform: uppercase;
-    font-weight: bold;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.5;
     text-align: center;
     opacity: 0;
     z-index: 20;
@@ -112,9 +116,9 @@ body::before {
 
 .aura-text span {
     display: inline-block;
-    color: #8a2be2; /* Morado */
-    text-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2;
-    font-size: 32px; /* Texto más grande */
+    color: #ffd6e5; /* Rosa pastel */
+    text-shadow: 0 0 10px rgba(255, 200, 221, 0.7), 0 0 22px rgba(205, 180, 219, 0.5);
+    font-size: 28px;
     opacity: 0;
     transform: translateY(20px);
     margin: 5px 0;
@@ -123,9 +127,9 @@ body::before {
 /* Cursor parpadeante */
 .cursor {
     display: inline-block;
-    width: 10px;
-    height: 32px;
-    background-color: #8a2be2;
+    width: 3px;
+    height: 30px;
+    background-color: #ffd6e5;
     margin-left: 5px;
     animation: blink 0.7s infinite;
     vertical-align: middle;
@@ -151,15 +155,17 @@ body::before {
     top: 2%; /* Posicionado más arriba */
     left: 50%;
     transform: translateX(-50%);
-    font-family: 'Courier New', monospace;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
     text-align: center;
-    color: #8a2be2;
-    text-shadow: 0 0 15px #8a2be2;
+    color: #ffd6e5;
+    text-shadow: 0 0 15px rgba(255, 200, 221, 0.7);
     opacity: 0;
     z-index: 30;
     pointer-events: none;
-    font-size: 32px; /* Texto más grande */
-    line-height: 1.6;
+    font-size: 28px;
+    line-height: 1.5;
     white-space: pre-line;
     max-width: 90%;
     width: 100%;
@@ -168,21 +174,20 @@ body::before {
 }
 
 .final-message.active {
-    color: red;
+    color: #fff0f5;
     text-shadow: 
-        0 0 20px red, 
-        0 0 40px red, 
-        0 0 80px red,
-        0 0 100px red; 
+        0 0 12px rgba(255, 182, 213, 0.95), 
+        0 0 28px rgba(255, 182, 213, 0.7), 
+        0 0 55px rgba(205, 180, 219, 0.6);
     animation: text-pulse 0.5s infinite alternate;
 }
 
 @keyframes text-pulse {
     from {
-        text-shadow: 0 0 30px yellow, 0 0 50px yellow;
+        text-shadow: 0 0 30px rgba(255, 182, 213, 0.9), 0 0 50px rgba(255, 182, 213, 0.9);
     }
     to {
-        text-shadow: 0 0 40px yellow, 0 0 70px yellow, 0 0 100px yellow; 
+        text-shadow: 0 0 40px rgba(255, 182, 213, 0.9), 0 0 70px rgba(255, 182, 213, 0.9), 0 0 100px rgba(255, 182, 213, 0.9); 
     }
 }
 
@@ -222,7 +227,11 @@ body::before {
     transition: bottom 1.5s ease-out; /* Aparece rápido */
 }
 
-    </style>
+    @media screen and (max-width: 574px) {
+    .aura-text span, .final-message { font-size: 19px; }
+    .cursor { height: 20px; }
+}
+</style>
 </head>
 
 <body class="container">
@@ -391,7 +400,7 @@ body::before {
         }
         
         function showHackerText() {
-            const message = "Mas hermosa que las flores eres tu mi amor, te amo ❤️";
+            const message = "Eres la flor más hermosa de mi vida, mi amor. Contigo todo florece y cada día se siente como primavera. Gracias por existir. Te amo con todo mi corazón ❤️";
             const auraText = document.getElementById('aura-text');
             const finalMessage = document.getElementById('final-message');
             
@@ -429,7 +438,7 @@ body::before {
                     currentIndex++;
                     
                     // Mostrar siguiente carácter después de un retraso mayor (más lento)
-                    setTimeout(showNextCharacter, 150)+2000; // Más lento que antes (150ms por carácter)
+                    setTimeout(showNextCharacter, 90); // Más lento que antes (150ms por carácter)
                 } else {
                     // Todos los caracteres mostrados, eliminar cursor
                     cursor.remove();

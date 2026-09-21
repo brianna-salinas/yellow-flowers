@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
     <title>Mensaje Especial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500;1,600&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Courier New', monospace;
+            font-family: 'Quicksand', Arial, sans-serif;
         }
         
         body {
@@ -39,7 +42,7 @@
         
         .particle {
             position: absolute;
-            background-color: #fff;
+            background-color: #ffe5ec;
             border-radius: 50%;
             animation: fall linear infinite;
             opacity: 0.8;
@@ -70,16 +73,18 @@
         }
         
         .title {
-            font-size: 3.5rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: 3.2rem;
+            line-height: 1.25;
             margin-bottom: 30px;
-            color: yellow;
-            text-shadow: 0 0 10px yellow, 0 0 20px yellow;
+            color: #fff3b0;
+            text-shadow: 0 0 12px rgba(255, 243, 176, 0.65), 0 0 30px rgba(255, 200, 221, 0.45);
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 2s, transform 2s;
-            font-weight: 900;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
         
         .title.visible {
@@ -88,16 +93,16 @@
         }
         
         .message {
-            font-size: 2rem;
+            font-family: 'Quicksand', Arial, sans-serif;
+            font-size: 1.7rem;
             margin: 30px 0;
-            color: #fff;
-            text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+            color: #ffc8dd;
+            text-shadow: 0 0 10px rgba(255, 200, 221, 0.6), 0 0 22px rgba(205, 180, 219, 0.4);
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 2s, transform 2s;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1.5px;
         }
         
         .message.visible {
@@ -106,8 +111,12 @@
         }
         
         .message.red {
-            color: yellow;
-            text-shadow: 0 0 10px yellow, 0 0 20px yellow;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: 2.6rem;
+            font-weight: 600;
+            color: #cdb4db;
+            text-shadow: 0 0 12px rgba(205, 180, 219, 0.7), 0 0 26px rgba(189, 224, 254, 0.4);
         }
         
         .button {
@@ -121,25 +130,27 @@
         }
         
         .btn {
-            background: transparent;
-            border: 2px solid #9900ff;
-            padding: 15px 40px;
-            font-size: 1.5rem;
-            color: #9500ff;
-            border-radius: 5px;
+            font-family: 'Quicksand', Arial, sans-serif;
+            background: rgba(255, 200, 221, 0.12);
+            border: 2px solid #ffc8dd;
+            padding: 12px 40px;
+            font-size: 1.3rem;
+            color: #ffc8dd;
+            border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+            box-shadow: 0 0 15px rgba(255, 200, 221, 0.45);
             transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
         
         .btn:hover {
-            background: rgba(255, 0, 0, 0.2);
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.9);
+            background: rgba(205, 180, 219, 0.28);
+            border-color: #cdb4db;
+            color: #fff;
+            box-shadow: 0 0 28px rgba(205, 180, 219, 0.8);
             transform: scale(1.05);
         }
         
@@ -148,16 +159,7 @@
             overflow: hidden;
         }
         
-        .hacker-effect::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 5px;
-            height: 100%;
-            background-color: #a6c91a;
-            animation: blink 0.8s infinite;
-        }
+        .hacker-effect::after { display: none; }
         
         @keyframes blink {
             0%, 100% { opacity: 0; }
@@ -166,16 +168,20 @@
         
         @media (max-width: 768px) {
             .title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .message {
-                font-size: 1.5rem;
+                font-size: 1.25rem;
+            }
+            
+            .message.red {
+                font-size: 2rem;
             }
             
             .btn {
-                padding: 12px 30px;
-                font-size: 1.2rem;
+                padding: 10px 28px;
+                font-size: 1.1rem;
             }
         }
     </style>
